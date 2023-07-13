@@ -1,0 +1,23 @@
+<table>
+    <thead>
+    <tr>
+        <th>PostId</th>
+        <th>Title</th>
+        <th>View</th>
+        <th>Creation Date</th>
+        <th>isPublished</th>
+    </tr>
+</thead>
+    <tbody>
+        <tr *ngFor="let item of posts">
+            <td>{{item.postId}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.viewCount}}</td>
+            <td>{{item.creationDate}}</td>
+            <td>{{item.isPublished}}</td>        
+            <app-button [buttonText]="'Detail'" [id]= "item.postId" (onButtonClick)="handleDetailClick($event)"></app-button>
+            <app-button [buttonText]="'Delete'" [id]= "item.postId" (onButtonClick)="handleDeleteClick($event)"></app-button>
+        </tr>
+    </tbody>
+</table>
+<button [routerLink]="'/postadd'">Add Post</button>

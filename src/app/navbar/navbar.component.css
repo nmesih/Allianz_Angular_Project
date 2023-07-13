@@ -1,0 +1,22 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.right-nav {
+    display: flex;
+    gap: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+.right-nav>:first-child {
+    color: blue;
+}
+
+.right-nav>:first-child:hover{
+    color: orangered;
+}

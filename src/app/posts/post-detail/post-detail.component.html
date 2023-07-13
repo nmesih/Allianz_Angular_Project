@@ -1,0 +1,27 @@
+<div class="post-card">
+    <div class="post-detail">
+        <div class="header">
+            <p>{{post.postId}}</p>
+            <h1>{{post.title | uppercase}}</h1>
+        </div>
+        <div class="content">
+            <h2>Post Content</h2>
+            <p>{{post.content}}</p>
+        </div>
+        <div class="footer">
+            <div>
+                <h2>Category</h2>
+                <p>Category 1111</p>
+            </div>
+            <div>
+                <h2>Date</h2>
+                <p>{{post.creationDate}}</p>
+            </div>
+            <div>
+                <h2>Author</h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+<button [routerLink]="'/postlist'">Return Postlist</button>
