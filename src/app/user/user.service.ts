@@ -33,14 +33,12 @@ export class UserService {
     return this.users.find((user)=> user.email === email)
    }
 
+   // map methoduyla array'in içerisinde gezip, içerisinde ihtiyacımız olan objeyi bulup, objeyi birbirine eşitleyeceğiz.
   editUser(editedUser: User, id: number): void{
-    
-    // map methoduyla array'in içerisinde gezip, içerisinde ihtiyacımız olan objeyi bulup, objeyi birbirine eşitleyeceğiz.
-
    this.users = this.users.map(user => {
     if (user.userId === id) 
       user = editedUser
-      return user;
+    return user;
    });
   }
 
@@ -56,7 +54,7 @@ export class UserService {
   //username ve email'in unique olup olmadığını kontrol ediyoruz
   checkUnique(username: string, email: string, id: number): boolean{
     if(this.users.find((user) => user.username === username.toLowerCase()) !== undefined &&
-     this.findUserByUsername(username.toLowerCase())!.userId !== id)
+    this.findUserByUsername(username.toLowerCase())!.userId !== id)
       return false;
     else if (this.users.find((user) => user.email === email.toLowerCase()) !== undefined && this.findUserByEmail(email.toLowerCase())!.userId !== id)
       return false;

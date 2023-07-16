@@ -1,0 +1,31 @@
+<div class="category-card">
+    <div class="category-detail">
+        <div class="header">
+            <p><b>Category ID : </b>{{category.categoryId}}</p>
+            <p><b>Category Name : </b>{{category.name | uppercase}}</p>
+        </div>
+        <div class="content">
+            <p><b>Creation Date : </b>{{category.creationDate}}</p>
+        </div>
+        <div class="footer">
+            <div>
+                <p>{{category.name}} contains <b>{{postCount}}</b> posts.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="buttons">
+    <button (click)="handleEditClick()" class="edit-btn">Edit</button>
+    <button [routerLink]="'/categorylist'" class="return">Return Category List</button>
+</div>
+
+<form *ngIf="editMode" class="edit">
+    <label for="name">Name</label>
+    <input type="text" [(ngModel)]="updatedCategory.name" name="name">
+    <label for="creationDate">CreationDate</label>
+    <input type="date" [(ngModel)]="updatedCategory.creationDate" name="creationDate">
+    <div class="buttons">
+        <button type="button" (click)="handleSaveClick()" class="save">Save</button>
+        <button type="button" (click)="handleCancelClick()" class="cancel">Cancel</button>
+    </div>
+</form>

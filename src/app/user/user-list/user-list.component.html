@@ -1,15 +1,15 @@
 <table class="table-container">
     <thead>
-        <tr>
-            <th>UserId</th>
+        <tr class="columns">
+            <th>User ID</th>
             <th>Username</th>
             <th>Email</th>
-            <th>CreationDate</th>
+            <th>Creation Date</th>
             <th>IsActive</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of users">
+        <tr *ngFor="let item of pagedData">
             <td>{{item.userId}}</td>
             <td>{{item.username}}</td>
             <td>{{item.email}}</td>
@@ -22,11 +22,11 @@
             </td>
         </tr>
     </tbody>
-</table><br> <hr>
+</table><hr>
 
-<a [routerLink]="'/useradd'"><button >Add User</button></a>
+<a class="addButton" [routerLink]="'/useradd'"><button >Add User</button></a>
 
-<form *ngIf="editMode">  
+<form class="edit" *ngIf="editMode">  
     <label for="username">Username</label>
     <input type="text" [(ngModel)]="username" name= "username">
     <label for="email">Email</label>
@@ -38,9 +38,17 @@
         <option [value]="true">Active</option>
         <option [value]="false">Deactive</option>
     </select>
-    <div>
-       <button (click)="handleSaveClick()" type="button">Save</button>
-       <button (click)="handleCancelClick()" type="button">Cancel</button>
+    <div class="buttons">
+       <button (click)="handleSaveClick()" type="button" class="save">Save</button>
+       <button (click)="handleCancelClick()" type="button" class="cancel">Cancel</button>
     </div>
 
 </form>
+
+<div class="pagination" *ngIf="totalPages > 0">
+    <button [disabled]="currentPage === 1" (click)="previousPage()">&lt;</button>
+    <span class="pageNumber">{{ currentPage }}</span>
+    <button [disabled]="currentPage === totalPages" (click)="nextPage()">&gt;</button>
+</div>
+
+

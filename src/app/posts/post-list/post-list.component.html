@@ -1,23 +1,33 @@
 <table>
     <thead>
-    <tr>
-        <th>PostId</th>
+    <tr class="columns">
+        <th>Post ID</th>
         <th>Title</th>
         <th>View</th>
         <th>Creation Date</th>
-        <th>isPublished</th>
+        <th>Is Published</th>
     </tr>
 </thead>
     <tbody>
-        <tr *ngFor="let item of posts">
+        <tr *ngFor="let item of pagedData">
             <td>{{item.postId}}</td>
             <td>{{item.title}}</td>
             <td>{{item.viewCount}}</td>
-            <td>{{item.creationDate}}</td>
+            <td>{{item.creationDate | date}}</td>
             <td>{{item.isPublished}}</td>        
-            <app-button [buttonText]="'Detail'" [id]= "item.postId" (onButtonClick)="handleDetailClick($event)"></app-button>
+            <td><app-button [buttonText]="'Detail'" [id]= "item.postId" (onButtonClick)="handleDetailClick($event)"></app-button>
             <app-button [buttonText]="'Delete'" [id]= "item.postId" (onButtonClick)="handleDeleteClick($event)"></app-button>
+            </td>
         </tr>
     </tbody>
-</table>
-<button [routerLink]="'/postadd'">Add Post</button>
+</table><hr>
+
+<a class="addButton"><button [routerLink]="'/postadd'">Add Post</button></a>
+
+<div class="pagination" *ngIf="totalPages > 0">
+    <button [disabled]="currentPage === 1" (click)="previousPage()">&lt;</button>
+    <span class="pageNumber">{{currentPage}}</span>
+    <button [disabled]="currentPage === totalPages" (click)="nextPage()">&gt;</button>
+</div>
+
+

@@ -3,6 +3,9 @@ import { Post } from '../post';
 import { PostService } from '../post.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
+import { User } from 'src/app/user/user';
+import { CategoryService } from 'src/app/category/category.service';
+import { Category } from 'src/app/category/category';
 
 @Component({
   selector: 'app-post-detail',
@@ -21,18 +24,40 @@ export class PostDetailComponent {
     creationDate: "",
     isPublished: false
   };
+  users: User[] = [];
+  categories: Category[] = [];
+  editMode: Boolean = false;
 
-  constructor(private postService: PostService, private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) {
-    
-  }
+  constructor(private postService: PostService, private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService, private categoryService: CategoryService) {
+    if(this.userService.getUsers().length === 0)
+    this.userService.setUsers();
+    else
+      this.users = this.userService.getUsers();
+    if (this.categoryService.getCategories().length === 0)
+      this.categoryService.setCategories();
+    else
+      this.categories = this.categoryService.getCategories();
+ }
 
   ngOnInit(){
     this.activatedRoute.params.subscribe(params => {
-      const id = params['id'];
-      this.postService.setPosts();
       this.posts = this.postService.getPosts();
-      console.log(this.posts);
+      const id = params['id'];
       this.post = this. posts.find(post => post.postId === Number(id))!;
     } )
+  }
+
+  handleSaveClick(){
+    this.postService.updatePost(this.post);
+    this.router.navigateByUrl('/postlist');
+  }
+
+  handleDeleteClick(){
+    this.postService.deletePost(this.post.postId);
+    this.router.navigateByUrl('/postlist');
+  }
+
+  handleEditClick(){
+    this.editMode = !this.editMode;
   }
 }

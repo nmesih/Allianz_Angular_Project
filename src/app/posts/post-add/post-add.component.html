@@ -1,4 +1,4 @@
-<form>  
+<form class="addPost">  
     <label for="title">Title</label>
     <input type="text" [(ngModel)]="post.title" name= "title">
     <label for="content">Content</label>
@@ -16,9 +16,9 @@
     <select [(ngModel)]="post.userId" name="user">
         <option *ngFor="let user of users" [value]="user.userId">{{user.username}}</option>
     </select>
-    <div>
-       <button (click)="handleSaveClick()" type="button">Save</button>
-       <button (click)="handleCancelClick()" type="button">Cancel</button>
+    <div class="buttons">
+       <button (click)="handleSaveClick()" type="button" class="save">Save</button>
+       <button (click)="handleCancelClick()" type="button" class="cancel">Cancel</button>
     </div>
 </form>
 

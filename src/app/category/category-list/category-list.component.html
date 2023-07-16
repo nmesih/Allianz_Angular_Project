@@ -1,0 +1,40 @@
+<table>
+    <thead class="columns">
+        <tr>
+            <th>Category ID</th>
+            <th>Category Name</th>
+            <th>Category Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of pagedData">
+            <td>{{item.categoryId}}</td>
+            <td>{{item.name | uppercase}}</td>
+            <td>{{item.creationDate  | date}}</td>
+            <td><app-button [buttonText]="'Detail'" [id]= "item.categoryId" (onButtonClick)="handleDetailClick($event)"></app-button>
+            <app-button [buttonText]="'Delete'" [id]= "item.categoryId" (onButtonClick)="handleDeleteClick($event)" ></app-button>
+            </td>
+        </tr>
+    </tbody>
+</table><hr>
+
+<a class="addButton"><button (click)="handleAddCategory()">Add Category</button></a>
+
+<form *ngIf="addCategoryForm" class="addCategory">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="newCategoryName" name="name">
+        <label for="creationDate">CreationDate</label>
+        <input type="date" [(ngModel)]="newCategoryDate" name="creationDate">
+        <div class="buttons">
+            <button type="button" (click)="handleSaveClick()" class="save">Save</button>
+            <button type="button" (click)="handleCancelClick()" class="cancel">Cancel</button>
+        </div>
+</form>
+
+<div class="pagination" *ngIf="totalPages > 0">
+    <button [disabled]="currentPage === 1" (click)="previousPage()">&lt;</button>
+    <span class="pageNumber">{{ currentPage }}</span>
+    <button [disabled]="currentPage === totalPages" (click)="nextPage()">&gt;</button>
+</div>
+
+

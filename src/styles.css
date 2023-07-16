@@ -1,1 +1,124 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
+
+:root{
+    --primaryFont: 'Oxygen', sans-serif;
+    --pageNumberFont: 'Roboto Slab', serif;
+}
+
+body {
+    background-color: rgb(204, 226, 255);
+}
+
+table{
+    width: 100%;
+    color: rgb(0, 0, 0);
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--primaryFont);
+}
+
+.columns {
+    font-size: 18px;
+}
+
+th {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+th, td {
+    text-align: center;
+    padding: 0px;
+}
+
+tr:nth-child(even)
+{
+    background-color: #e4e4e4;
+}
+
+tr:nth-child(odd)
+{
+    background-color: lightblue;
+}
+
+.table-head > tr > th:last-child {
+    text-align: center;
+}
+
+.edit {
+    font-family: var(--primaryFont);
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.edit > input,
+.edit > select {
+    min-width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 5px;
+}
+
+
+.addButton {
+    display: flexbox;
+    align-items: end;
+    margin: 10px;
+    height: 50vh;
+}
+
+.addButton > button {
+    background-color: steelblue;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: var(--primaryFont);
+    font-weight: 600;
+}
+
+.addButton > button:hover {
+    background-color: slategrey;
+    color: white;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    gap: 10px;
+}
+
+.pageNumber{
+    font-size: 20px;
+    font-family: var(--pageNumberFont);
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.save,
+.cancel {
+    background-color: royalblue;
+    font-family: var(--primaryFont);
+    font-weight: 800;
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save:hover,
+.cancel:hover {
+    background-color: wheat;
+    
+}
+
+  
+ 

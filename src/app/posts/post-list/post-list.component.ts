@@ -10,19 +10,59 @@ import { Router } from '@angular/router';
 })
 export class PostListComponent {
   
-  posts: Post[] = []
+  posts: Post[] = [];
+  pagedData: Post[] = [];
+  currentPage = 1;
+  itemsPerPage = 10;
+
   constructor(private postService: PostService, private router: Router){
-    this.postService.setPosts();
+    if(this.postService.getPosts().length === 0)  
+      this.postService.setPosts();
     this.posts = this.postService.getPosts();
   }
 
-
+  // post silme için
   handleDeleteClick($event: number): void {
     this.postService.deletePost($event);
     this.posts = this.postService.getPosts();
+    this.pageChanged(this.currentPage);
   }
 
   handleDetailClick($event: number): void {
     this.router.navigate(["/postlist/", $event]);
+  }
+
+  ngOnInit(){
+    this.pageChanged(this.currentPage);
+  }
+
+  // sayfa değiştiğinde güncelleme yapar
+  pageChanged(page: number): void {
+    const startIndex = (page - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.pagedData = this.posts.slice(startIndex, endIndex);
+    this.currentPage = page;
+    if (this.pagedData.length === 0 && this.currentPage > 1) {
+      this.previousPage();
+    }
+  }
+
+  previousPage(): void{
+    if(this.currentPage > 1){
+      this.currentPage--;
+      this.pageChanged(this.currentPage);
+    }
+  }
+
+  nextPage(): void {
+    if(this.currentPage < this.totalPages){
+      this.currentPage++;
+      this.pageChanged(this.currentPage);
+    }
+  }
+
+  // toplam sayfa sayısını buluyoruz
+  get totalPages(): number{
+    return Math.ceil(this.posts.length / this.itemsPerPage);
   }
 }

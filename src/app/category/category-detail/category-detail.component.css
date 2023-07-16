@@ -1,6 +1,5 @@
-.post-card {
+.category-card {
     font-family: var(--primaryFont);
-    font-size: 15px;
 }
 
 .edit {
@@ -8,20 +7,16 @@
 }
 
 .edit-btn,
-.delete-btn,
-.return-btn{
+.return {
     background-color: royalblue;
     font-family: var(--primaryFont);
     font-weight: 800;
     color: black;
     border: none;
     padding: 10px;
-    border-radius: 5px; 
+    border-radius: 5px;  
 }
-.save {
-    position: relative;
-    left: 10px;
-}
+
 .save,
 .cancel {
     background-color: royalblue;

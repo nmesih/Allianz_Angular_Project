@@ -1,0 +1,36 @@
+.columns {
+    justify-content: space-between;
+}
+
+.addCategory {
+        margin-top: 10px;
+        font-family: var(--primaryFont);
+        font-size: 17px;
+        font-weight: 800;
+    }
+    
+.addCategory > input,
+.addCategory > select {
+        min-width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+    }
+
+.buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+    }
+    
+.save,
+.cancel {
+        background-color: royalblue;
+        font-family: var(--primaryFont);
+        font-weight: 800;
+        color: black;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }

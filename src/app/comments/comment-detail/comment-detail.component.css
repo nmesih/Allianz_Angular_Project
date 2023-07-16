@@ -1,0 +1,29 @@
+.comment-card {
+    width: 100%;
+    color: rgb(0, 0, 0);
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--primaryFont);
+}
+ 
+.return{
+        display: flexbox;
+        align-items: end;
+        margin: 10px;
+        background-color: steelblue;
+        border-radius: 5px;
+        font-size: 15px;
+        font-family: var(--primaryFont);
+        font-weight: 200;
+        color: white;
+    }
+
+    
+    
+.return:hover {
+        background-color: slategrey;
+        color: white;
+    }
+
+    

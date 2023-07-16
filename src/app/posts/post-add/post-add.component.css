@@ -1,0 +1,27 @@
+.addPost {
+    color: royalblue;
+    font-family: var(--primaryFont);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.addPost> * {
+    margin-bottom: 5px;
+}
+
+.addPost > label {
+    font-size: 18px;
+    font-weight: 800;
+    font-family: var(--primaryFont);
+    text-align: left;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+

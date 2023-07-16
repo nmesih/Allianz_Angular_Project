@@ -22,10 +22,18 @@ export class PostService {
   }
 
   findPostById(id: number): Post | undefined{
-    return this.posts.find((post)=> post.postId === Number(id))
+    return this.posts.find((post)=> Number(post.postId) === Number(id))
   }
 
   addPost(post: Post) {
     this.posts.push(post);
+  }
+
+  updatePost(updatedPost: Post){
+    this.posts = this.posts.map(post =>{
+       if(post.postId === updatedPost.postId) 
+        post = updatedPost;
+      return post;
+    })
   }
 }
