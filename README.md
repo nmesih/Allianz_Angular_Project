@@ -3,13 +3,13 @@
 Bu proje bir blog yönetim sistemi olarak tasarlanmıştır. Uygulamamızda kullanıcı listesi(User List), gönderi listesi(Post List), kategori listesi(Category List) ve yorum listesi(Comment List) için olmak üzere 4 listeleme sayfası bulunmaktadır.
 
 ## Hedef
-*Basit bir blog yönetim sistemi oluşturup verilerimizi eklemek, listelemek, düzenlemek ve
-silmek.*
+Basit bir blog yönetim sistemi oluşturup verilerimizi eklemek, listelemek, düzenlemek ve
+silmek.
 
 ## Konu
-*SQL ödevimizde hazırladığımız veritabanına uygun olarak şimdi de bu verileri
+SQL ödevimizde hazırladığımız veritabanına uygun olarak şimdi de bu verileri
 yönetebileceğimiz bir yönetim panelini Angular kullanarak tasarlamak istiyoruz. Modellerimiz
-şu şekilde olacaktır.*
+şu şekilde olacaktır.
 
 
 | User | Post |Category |Comment |
