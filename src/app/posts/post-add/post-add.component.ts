@@ -23,16 +23,24 @@ export class PostAddComponent {
   };
 
   users: User[] = [];
+  posts: Post[] = [];
+
   constructor(private postService: PostService, private router: Router, private userService: UserService){
     this.userService.setUsers();
     this.users = this.userService.getUsers();
+    if(this.postService.getPosts().length === 0)
+      this.postService.setPosts();
+    this.posts = this.postService.getPosts();
   }
-
+  
   handleSaveClick(){
+    this.post.postId = this.posts[this.posts.length - 1].postId + 1;
     this.postService.addPost(this.post);
+    this.posts = this.postService.getPosts();
     this.router.navigateByUrl("/postlist");
   }
 
+  // cancel'a basınca list'e geri dönmesini sağlıyoruz
   handleCancelClick(){
     this.router.navigateByUrl("/postlist");
   }
